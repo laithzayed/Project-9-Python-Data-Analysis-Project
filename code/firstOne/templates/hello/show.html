@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JoAnalytics</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th> ID</th>
+        <th> Name</th>
+        <th> email</th>
+        <th> city</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+{% for persons in persons %}
+    <tr>
+        <td>{{ persons.id }}</td>
+        <td>{{ persons.name }}</td>
+        <td>{{ persons.email }}</td>
+        <td>{{ persons.city }}</td>
+        <td>
+            <a href="/edit/{{ persons.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+            <a href="/delete/{{ persons.id }}">Delete</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="/emp" class="btn btn-primary">Add New Record</a></center>
+</body>
+</html>
